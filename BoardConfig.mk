@@ -46,7 +46,7 @@ BOARD_EGL_CFG := device/htc/dlx/configs/egl.cfg
 #Kernel
 BOARD_KERNEL_BASE := 0x80600000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=dlx user_debug=0
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=dlx user_debug=0 androidboot.selinux=permissive #test booting with permissive
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01800000
 TARGET_KERNEL_CONFIG := cyanogenmod_dlx_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/m7
@@ -109,9 +109,15 @@ BOARD_VOLD_MAX_PARTITIONS := 36
 # Charge mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
-# Added for Clockworkmod
-TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+# TWRP
+TARGET_RECOVERY_INITRC := device/htc/dlx/recovery/init-twrp.rc
+DEVICE_RESOLUTION := 1080x1920
+TW_INCLUDE_DUMLOCK := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_NO_USB_STORAGE := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_RECOVERY_SWIPE := true
+HAVE_SELINUX := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true

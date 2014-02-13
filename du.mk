@@ -6,17 +6,17 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_RELEASE_NAME := dlx
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/du/config/common.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+# $(call inherit-product, vendor/du/config/nfc_enhanced.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/htc/dlx/full_dlx.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := dlx
-PRODUCT_NAME := cm_dlx
+PRODUCT_NAME := du_dlx
 PRODUCT_BRAND := Verizon
 PRODUCT_MODEL := HTC6435LVW
 PRODUCT_MANUFACTURER := HTC
